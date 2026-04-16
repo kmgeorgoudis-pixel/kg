@@ -624,7 +624,83 @@ footer {
 
 .mock-nav { display: flex; align-items: center; padding: 0 10px; gap: 10px; }
 .mock-nav-item { width: 15px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+/* Promo Banners Styling */
+.promo-card {
+    position: relative;
+    border: 2px solid rgba(0, 242, 254, 0.1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+}
 
+.promo-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-family: var(--font-mono);
+}
+
+.promo-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.promo-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.promo-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.promo-list li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.promo-list i {
+    width: 25px;
+    color: var(--primary-color);
+}
+
+.btn-promo {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn-promo:hover {
+    background: var(--primary-color);
+    color: #000;
+}
+
+
+.vagelis-promo .promo-icon, 
+.vagelis-promo .promo-list i {
+    color: #f1c40f;
+}
+.vagelis-promo {
+    border-color: rgba(241, 196, 15, 0.2);
+}
 </style>
 </head>
 
@@ -803,6 +879,42 @@ footer {
             </div>
         </div>
     </section>
+<section class="promos portfolio" style="padding-top: 0;">
+    <div class="container">
+        <h2 data-aos="fade-right">Συνεργασίες & Highlights</h2>
+        <p class="section-subtitle" data-aos="fade-right" data-aos-delay="200">Πραγματικά projects που εμπιστεύτηκαν την τεχνολογία μας.</p>
+        
+        <div class="grid">
+            <div class="card promo-card ariston-promo" data-aos="fade-up">
+                <div class="promo-badge">HOT PROJECT</div>
+                <div class="promo-content">
+                    <i class="fas fa-tint promo-icon"></i>
+                    <h3>ARISTON Wash & Dry</h3>
+                    <p>Το κορυφαίο <strong>self-service laundry</strong> στη Σάμο. Πλυντήρια & στεγνωτήρια για πεντακάθαρα ρούχα σε λιγότερο από 1 ώρα!</p>
+                    <ul class="promo-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Βαθύ, Δερβανακίων 10</li>
+                        <li><i class="fas fa-coffee"></i> Free Wi-Fi & Coffee Spot</li>
+                    </ul>
+                    <a href="https://www.aristonwashdry.gr" target="_blank" class="btn-promo">Επίσκεψη Site <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="card promo-card vagelis-promo" data-aos="fade-up" data-aos-delay="200">
+                <div class="promo-badge" style="background: #f1c40f; color: #000;">SUMMER SPOT</div>
+                <div class="promo-content">
+                    <i class="fas fa-cocktail promo-icon"></i>
+                    <h3>Vagelis Bar</h3>
+                    <p>Η απόλυτη καλοκαιρινή εμπειρία στο <strong>Κοκκάρι</strong>. Από premium καφέ το πρωί μέχρι signature cocktails με την καλύτερη θέα.</p>
+                    <ul class="promo-list">
+                        <li><i class="fas fa-sun"></i> Αυθεντική Φιλοξενία</li>
+                        <li><i class="fas fa-moon"></i> Nightlife Vibes</li>
+                    </ul>
+                    <a href="https://vagelisbar.gr" target="_blank" class="btn-promo" style="border-color: #f1c40f; color: #f1c40f;">Επίσκεψη Site <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <footer>
         <div class="container">
