@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konstantinos Georgoudis | Web Expert</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23050a12;stop-opacity:1' /><stop offset='100%25' style='stop-color:%231a2a3a;stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23grad)' stroke='%231a2a3a' stroke-width='2'/><text y='50%25' x='50%25' dotted-anchor='middle' text-anchor='middle' dy='.35em' font-family='Poppins, sans-serif' font-weight='700' font-size='40'><tspan fill='%23ffffff'>K</tspan><tspan fill='%2300f2fe'>G</tspan></text><path d='M35 70 Q50 80 65 70' stroke='%234facfe' stroke-width='3' stroke-linecap='round' fill='none'/></svg>">
+    
+    
+<style>
+
+
+:root {
+    --bg-color: #050a12; 
+    --text-color: #e0e6ed;
+    --primary-color: #00f2fe; 
+    --secondary-color: #4facfe;
+    --card-bg: rgba(255, 255, 255, 0.05); /* Glass effect base */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --font-main: 'Poppins', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+}
+
+/* --- Navigation --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(5, 10, 18, 0.8);
+    backdrop-filter: blur(10px); /* Glassmorphism */
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links i {
+    font-size: 0.8rem;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px; /* nav height */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typewriter {
+    font-family: var(--font-mono);
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    opacity: 0.9;
+}
+
+
+.portfolio {
+    padding: 100px 0;
+}
+
+.portfolio h2 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Glass Card */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- CSS Fake Browser Mockups --- */
+.browser-mockup {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 220px;
+}
+
+.browser-bar {
+    height: 20px;
+    background: rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 5px;
+}
+
+.browser-bar i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-color);
+}
+
+.mockup-content {
+    padding: 10px;
+    height: calc(100% - 20px);
+    background: #08111f;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mock-nav { height: 15px; background: rgba(255,255,255,0.05); border-radius: 4px;}
+.mock-hero { height: 60px; background: var(--card-bg); border-radius: 4px;}
+.mock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;}
+.mock-grid div { height: 40px; background: rgba(255,255,255,0.03); border-radius: 2px;}
+
+
+.mockup-content.eshop .mock-hero { background: rgba(79, 172, 254, 0.1); }
+.mockup-content.eshop .mock-grid div:hover { background: var(--primary-color); }
+
+.mock-split { display: flex; gap: 8px; flex: 1; }
+.mock-split .text { flex: 1; background: rgba(255,255,255,0.03); border-radius: 4px;}
+.mock-split .image { flex: 1; background: var(--card-bg); border-radius: 4px;}
+
+.mock-full-hero { flex: 1; background: linear-gradient(135deg, rgba(5,10,18,1) 0%, rgba(0,242,254,0.1) 100%); border-radius: 4px; }
+.mock-bars { display: flex; gap: 5px; flex-direction: column; }
+.mock-bars div { height: 8px; background: rgba(255,255,255,0.02); border-radius: 2px;}
+
+/* End of Mockups */
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+}
+
+.tags span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--primary-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* --- Booking Section --- */
+.booking {
+    padding: 100px 0;
+    position: relative;
+}
+
+.contact-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.contact-info {
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid var(--border-color);
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contact-info p {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+
+form {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+form label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-mono);
+}
+
+form input, 
+form textarea {
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--font-main);
+    transition: var(--transition);
+}
+
+form input:focus, 
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(0, 242, 254, 0.05);
+}
+
+.btn-submit {
+    background: #fff;
+    color: #000;
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+
+footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.footer-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+
+@media (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .contact-info {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .hero h1 { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .nav-links { display: none; } 
+    .form-row { grid-template-columns: 1fr; }
+}
+
+
+.circles{
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden; z-index: -1;
+}
+.circles li{
+    position: absolute; display: block; list-style: none;
+    width: 20px; height: 20px; background: rgba(0, 242, 254, 0.03);
+    animation: animate 25s linear infinite; bottom: -150px;
+}
+.circles li:nth-child(1){ left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+.circles li:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+.circles li:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+.circles li:nth-child(4){ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+.circles li:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+.circles li:nth-child(6){ left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+@keyframes animate {
+    0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+    100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+}
+.checkbox-group {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+    font-size: 0.85rem;
+}
+.checkbox-group input { width: auto; margin: 0; cursor: pointer; }
+.cookie-banner {
+    position: fixed;
+    bottom: -100px; 
+    left: 0; width: 100%;
+    background: rgba(5, 10, 18, 0.95);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid var(--primary-color);
+    padding: 20px 0;
+    z-index: 9999;
+    transition: bottom 0.5s ease-in-out;
+}
+.cookie-banner.show { bottom: 0; }
+.cookie-content {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+}
+.cookie-content p { font-size: 0.9rem; margin: 0; }
+@media (max-width: 600px) {
+    .cookie-content { flex-direction: column; text-align: center; }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+
+.eshop .mock-product {
+    background: linear-gradient(45deg, #1a2a3a, #0d1a26);
+    position: relative;
+    overflow: hidden;
+}
+
+.eshop .mock-product::after {
+    content: '';
+    position: absolute;
+    top: 5px; left: 5px; width: 40%; height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.eshop .mock-cart {
+    width: 20px; height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+
+.studio .mock-image-animated {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.studio .mock-text-line {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    width: 80%;
+}
+
+
+.tech .mock-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.tech .mock-title { width: 60%; height: 10px; background: #fff; border-radius: 5px; }
+.tech .mock-btn { width: 30%; height: 8px; background: var(--primary-color); border-radius: 4px; }
+
+
+.mock-nav { display: flex; align-items: center; padding: 0 10px; gap: 10px; }
+.mock-nav-item { width: 15px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+</style>
+</head>
+
+<body>
+
+    <div class="area" >
+            <ul class="circles">
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+            </ul>
+    </div >
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">K<span>G</span></div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Αρχική</a></li>
+                <li><a href="#work"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Κράτηση</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 data-aos="zoom-out">
+                Γεια! Είμαι ο <br>
+                <span class="typewriter" data-text='["Κωνσταντίνος Γεωργούδης", "Web Developer", "UI/UX Designer"]'></span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="600">
+                Δημιουργώ <span class="highlight">φθηνές</span> και εξαιρετικά <span class="highlight">αποτελεσματικές</span> ιστοσελίδες που ξεχωρίζουν. Η επιχείρησή σας αξίζει μια σύγχρονη παρουσία.
+            </p>
+            <a href="#contact" class="btn btn-primary" data-aos="fade-up" data-aos-delay="800">
+                Ξεκινήστε τώρα <i class="fas fa-rocket"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="work" class="portfolio">
+        <div class="container">
+            <h2 data-aos="fade-right">Πρότυπα Ιστοσελίδων (Mockups)</h2>
+            <p class="section-subtitle" data-aos="fade-right" data-aos-delay="200">Προσαρμόζω το design στις ανάγκες σας.</p>
+            
+            <div class="grid">
+    <div class="card" data-aos="flip-left">
+        <div class="browser-mockup">
+            <div class="browser-bar"><i></i><i></i><i></i></div>
+            <div class="mockup-content eshop">
+                <div class="mock-nav">
+                    <div class="mock-nav-item"></div><div class="mock-nav-item"></div>
+                    <div class="mock-cart"></div>
+                </div>
+                <div class="mock-hero" style="background: rgba(0, 242, 254, 0.05); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 8px; color: var(--primary-color); font-family: var(--font-mono);">FLASH SALE -50%</span>
+                </div>
+                <div class="mock-grid">
+                    <div class="mock-product"></div><div class="mock-product"></div>
+                    <div class="mock-product"></div><div class="mock-product"></div>
+                </div>
+            </div>
+        </div>
+        <h3>Neo-Store E-Commerce</h3>
+        <p>Πλήρες κατάστημα με καλάθι και δυναμικά φίλτρα προϊόντων.</p>
+        <div class="tags"><span>UI</span><span>Clean</span><span>$</span></div>
+    </div>
+
+    <div class="card" data-aos="flip-left" data-aos-delay="200">
+        <div class="browser-mockup">
+            <div class="browser-bar"><i></i><i></i><i></i></div>
+            <div class="mockup-content studio">
+                <div class="mock-nav"><div class="mock-nav-item"></div><div class="mock-nav-item"></div></div>
+                <div class="mock-split">
+                    <div class="text" style="padding: 10px;">
+                        <div class="mock-text-line" style="width: 90%;"></div>
+                        <div class="mock-text-line" style="width: 70%;"></div>
+                        <div class="mock-text-line" style="width: 85%;"></div>
+                        <div class="mock-btn" style="width: 40%; height: 10px; background: var(--secondary-color); margin-top: 10px; border-radius: 2px;"></div>
+                    </div>
+                    <div class="image mock-image-animated"></div>
+                </div>
+            </div>
+        </div>
+        <h3>Creative Studio</h3>
+        <p>Minimal αισθητική με έμφαση στο portfolio και τις φωτογραφίες.</p>
+        <div class="tags"><span>Animations</span><span>Bold</span><span>$</span></div>
+    </div>
+    
+    <div class="card" data-aos="flip-left" data-aos-delay="400">
+        <div class="browser-mockup">
+            <div class="browser-bar"><i></i><i></i><i></i></div>
+            <div class="mockup-content tech">
+                <div class="mock-nav"><div class="mock-nav-item"></div><div class="mock-nav-item"></div></div>
+                <div class="mock-full-hero">
+                    <div class="mock-hero-content">
+                        <div class="mock-title"></div>
+                        <div class="mock-text-line" style="width: 40%; background: rgba(255,255,255,0.3);"></div>
+                        <div class="mock-btn"></div>
+                    </div>
+                </div>
+                <div class="mock-bars" style="padding: 5px;">
+                    <div style="height: 20px; background: rgba(255,255,255,0.03); border-radius: 4px; display: flex; gap: 5px; padding: 4px;">
+                        <div style="width: 30%; height: 100%; background: rgba(0, 242, 254, 0.1);"></div>
+                        <div style="width: 70%; height: 100%; background: rgba(255,255,255,0.02);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>SaaS Landing Page</h3>
+        <p>Σελίδα υψηλής μετατροπής για τεχνολογικές υπηρεσίες και Apps.</p>
+        <div class="tags"><span>Tech</span><span>Minimal</span><span>$</span></div>
+        
+    </div>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="booking">
+        <div class="container">
+            <div class="contact-wrapper" data-aos="fade-up">
+                <div class="contact-info">
+                    <h2>Θέλετε κάτι παρόμοιο;</h2>
+                    <p>Συμπληρώστε τη φόρμα και θα επικοινωνήσω μαζί σας για να συζητήσουμε την ιδέα σας και να σας δώσω μια προσφορά.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Οικονομικές Λύσεις</li>
+                        <li><i class="fas fa-check"></i> Γρήγορη Παράδοση</li>
+                        <li><i class="fas fa-check"></i> SEO Φιλικό</li>
+                    </ul>
+                </div>
+                
+                <form action="https://formsubmit.co/georgoudisk@aristonwashdry.gr" method="POST">
+                    <input type="hidden" name="_subject" value="Νέα Κράτηση από Web Expert!">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+                    
+                    <div class="form-group">
+                        <label>Ονοματεπώνυμο</label>
+                        <input type="text" name="name" placeholder="π.χ. Ιωάννης Παπαδόπουλος" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="john@doe.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Κινητό</label>
+                            <input type="tel" name="phone" placeholder="69XXXXXXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Θέμα</label>
+                        <input type="text" name="subject" placeholder="π.χ. Δημιουργία E-shop">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Το Μήνυμά σας</label>
+                        <textarea name="message" placeholder="Περιγράψτε την ιδέα σας..." rows="5" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacy_check" name="privacy_agreement" required>
+                        <label for="privacy_check">
+                            Αποδέχομαι την <a href="privacy.html" target="_blank" style="color: var(--primary-color);">Πολιτική Απορρήτου</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-submit">
+                        Αποστολή Αιτήματος <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Konstantinos Georgoudis | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Πολιτική Απορρήτου</a>
+                <a href="privacy.html#terms">Όροι Χρήσης</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script> 
+// Init AOS Animation Library
+AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-out-quad',
+});
+
+// Typewriter Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        const i = this.loopNum % this.toRotate.length;
+        const fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        const that = this;
+        let delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+
+        setTimeout(function() {
+            that.tick();
+        }, delta);
+    };
+
+    const elements = document.getElementsByClassName('typewriter');
+    for (let i=0; i<elements.length; i++) {
+        const toRotate = elements[i].getAttribute('data-text');
+        const period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS for Cursor
+    const css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewriter > .wrap { border-right: 0.08em solid #00f2fe}";
+    document.body.appendChild(css);
+});      
+document.addEventListener("DOMContentLoaded", function() {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+
+    
+    if (!localStorage.getItem("cookiesAccepted")) {
+        setTimeout(() => {
+            banner.classList.add("show");
+        }, 2000); // Εμφάνιση μετά από 2 δευτερόλεπτα
+    }
+
+    acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.classList.remove("show");
+    });
+});  
+    </script>
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>Χρησιμοποιούμε cookies για να σας εξασφαλίσουμε την καλύτερη εμπειρία. 
+           <a href="privacy.html">Μάθετε περισσότερα</a>.
+        </p>
+        <button id="accept-cookies" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Αποδοχή</button>
+    </div>
+</div>
+</body>
+</html>

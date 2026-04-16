@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Νομικές Πληροφορίες | Konstantinos Georgoudis</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #050a12;
+            --text-color: #e0e6ed;
+            --primary-color: #00f2fe;
+            --secondary-color: #4facfe;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Background Animation (όπως στην κεντρική) */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(0, 242, 254, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { transform: translateX(-5px); }
+        .back-link i { margin-right: 10px; }
+
+        .legal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .legal-card { padding: 30px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Επιστροφή στην Αρχική</a>
+        
+        <div class="legal-card">
+            <h1>Πολιτική Απορρήτου & Όροι</h1>
+            <span class="last-updated">Τελευταία ενημέρωση: Απρίλιος 2026</span>
+
+            <section>
+                <h2>1. Συλλογή Δεδομένων</h2>
+                <p>Κατά την επίσκεψή σας στην ιστοσελίδα μας και τη χρήση της φόρμας επικοινωνίας, συλλέγουμε περιορισμένα προσωπικά δεδομένα που είναι απαραίτητα για την εξυπηρέτησή σας:</p>
+                <ul>
+                    <li><strong>Προσωπικά Στοιχεία:</strong> Ονοματεπώνυμο, διεύθυνση ηλεκτρονικού ταχυδρομείου (email) και αριθμό τηλεφώνου.</li>
+                    <li><strong>Τεχνικά Δεδομένα:</strong> Διεύθυνση IP, τύπος προγράμματος περιήγησης και δεδομένα χρόνου παραμονής (μέσω ανώνυμων cookies).</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>2. Σκοπός Επεξεργασίας</h2>
+                <p>Η επεξεργασία των δεδομένων σας πραγματοποιείται αποκλειστικά για τους εξής σκοπούς:</p>
+                <ul>
+                    <li>Την επικοινωνία μαζί σας κατόπιν δικού σας αιτήματος.</li>
+                    <li>Την παροχή προσφορών και πληροφοριών σχετικά με τις υπηρεσίες Web Development.</li>
+                    <li>Τη βελτίωση της εμπειρίας πλοήγησης στην ιστοσελίδα μας.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Προστασία & Ασφάλεια</h2>
+                <p>Δεσμευόμαστε για την πλήρη ασφάλεια των δεδομένων σας. Εφαρμόζουμε σύγχρονα πρωτόκολλα κρυπτογράφησης (SSL) για τη μεταφορά των στοιχείων σας. Τα δεδομένα σας:</p>
+                <ul>
+                    <li>Δεν πωλούνται και δεν ενοικιάζονται σε τρίτους για διαφημιστικούς σκοπούς.</li>
+                    <li>Αποθηκεύονται σε ασφαλείς διακομιστές με περιορισμένη πρόσβαση.</li>
+                    <li>Διαγράφονται οριστικά μετά από 12 μήνες από την τελευταία μας επικοινωνία, εκτός αν υπάρξει έναρξη συνεργασίας.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Τα Δικαιώματά σας (GDPR)</h2>
+                <p>Σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων, έχετε τα εξής δικαιώματα:</p>
+                <ul>
+                    <li><strong>Δικαίωμα Πρόσβασης:</strong> Να μάθετε ποια δεδομένα τηρούμε για εσάς.</li>
+                    <li><strong>Δικαίωμα Διόρθωσης:</strong> Να ζητήσετε την αλλαγή λανθασμένων στοιχείων.</li>
+                    <li><strong>Δικαίωμα Διαγραφής:</strong> Να ζητήσετε την οριστική διαγραφή των στοιχείων σας ανά πάσα στιγμή.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Όροι Χρήσης & Πνευματική Ιδιοκτησία</h2>
+                <p>Όλο το περιεχόμενο της ιστοσελίδας, συμπεριλαμβανομένων των κειμένων, του κώδικα, των γραφικών και των σχεδίων (mockups), αποτελεί πνευματική ιδιοκτησία του <strong>Κωνσταντίνου Γεωργούδη</strong>.</p>
+                <p>Απαγορεύεται ρητά η αντιγραφή, αναπαραγωγή ή χρήση οποιουδήποτε τμήματος της σελίδας για εμπορικούς σκοπούς χωρίς την έγγραφη άδεια του δημιουργού.</p>
+            </section>
+
+            <section>
+                <h2>6. Πολιτική Cookies</h2>
+                <p>Χρησιμοποιούμε cookies για να βελτιώσουμε τη λειτουργικότητα της σελίδας. Χρησιμοποιούνται δύο τύποι:</p>
+                <ul>
+                    <li><strong>Απαραίτητα Cookies:</strong> Για τη βασική λειτουργία της σελίδας.</li>
+                    <li><strong>Analytics Cookies:</strong> Για να κατανοήσουμε πώς χρησιμοποιούν οι επισκέπτες τη σελίδα (ανώνυμα στατιστικά).</li>
+                </ul>
+            </section>
+        </div>
+
+        <footer>
+            &copy; 2026 Konstantinos Georgoudis | Web Design & Development
+        </footer>
+    </div>
+</body>
+</html>
